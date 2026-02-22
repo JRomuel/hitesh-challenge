@@ -1,0 +1,529 @@
+:root {
+  --sidebar-bg: rgba(0, 41, 66, 1);
+  --sidebar-width: 170px;
+  --sidebar-hover: #243044;
+  --sidebar-active: #005890;
+  --sidebar-active-border: #4db6ac;
+  --topbar-height: 64px;
+  --body-bg: #ffffff;
+  --text-primary: #212121;
+  --text-secondary: #4D4D4D;
+  --text-tertiary: #949494;
+  --text-green: #138000;
+  --btn-green: #2e6b50;
+  --btn-green-hover: #245a43;
+  --card-bg: #f5f5f5;
+  --card-border: #e0e0e0;
+  --tab-active-bg: #e8f0fe;
+  --tab-active-text: #1a73e8;
+  --divider: #e0e0e0;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gibson', sans-serif;
+  background: var(--body-bg);
+  color: var(--text-primary);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cfd8dc;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-brand {
+  padding: 16px 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: #ffffff;
+}
+
+.sidebar-nav {
+  list-style: none;
+  flex: 1;
+  padding: 0 8px;
+  overflow-y: auto;
+}
+
+.sidebar-nav li {
+  margin-bottom: 4px;
+}
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  box-shadow: none;
+  vertical-align: middle;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  border-radius: 8px;
+}
+
+.sidebar-nav li a:hover {
+  background: var(--sidebar-hover);
+  color: #eceff1;
+}
+
+.sidebar-nav li a.active {
+  background: var(--sidebar-active);
+  color: #ffffff;
+  /* box-shadow: 0px 3px 8px 0px #0000001F; */
+  box-shadow: 0px 3px 1px 0px #0000000A;
+}
+
+
+/* ── Overlay ── */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 99;
+}
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ── Main ── */
+.main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Top bar ── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--topbar-height);
+  padding: 0 24px;
+  background: #fff;
+}
+
+.topbar-dark {
+  display: flex;
+  align-items: center;
+  order: 2;
+}
+
+.topbar-tabs {
+  order: 1;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.hamburger svg {
+  width: 26px;
+  height: 26px;
+  fill: #ffffff;
+}
+
+.mobile-brand {
+  display: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: #eeeeef;
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.tab-btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.tab-btn:hover {
+  background-color: #dfdfe1;
+  color: var(--text-primary);
+}
+.tab-btn.active {
+  background: #ffffff;
+  color: var(--text-primary);
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.print-btn {
+  background: none;
+  padding: 0 14px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-secondary);
+}
+.print-btn svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-secondary);
+}
+.print-btn .print-btn-label{
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-secondary);
+}
+
+.user-info {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-secondary);
+}
+.user-avatar-icon {
+  width: 20px;
+  height: 20px;
+}
+.user-name {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-secondary);
+}
+
+/* ── Content ── */
+.content {
+  padding: 24px;
+  flex: 1;
+  max-width: 1000px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 24px;
+}
+
+.content-grid {
+  display: flex;
+  gap: 56px;
+  align-items: flex-start;
+}
+
+/* ── Balance Table ── */
+.balance-section {
+  flex: 1;
+  min-width: 0;
+  order: 1;
+}
+
+.balance-section h3 {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.balance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.balance-table tr {
+  border: none;
+} 
+
+.balance-table td {
+  padding: 8px 4px;
+  font-size: 16px;
+}
+
+.balance-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.balance-table .amount {
+  color: var(--text-secondary);
+}
+.balance-table .amount.amount-zero {
+  color: var(--text-tertiary);
+}
+.balance-table .amount.amount-negative {
+  color: var(--text-green);
+}
+
+.balance-table .row-total td {
+  font-weight: 700;
+  padding-top: 14px;
+}
+
+/* ── Payment Card ── */
+.payment-card {
+  width: 466px;
+  flex-shrink: 0;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 16px;
+  order: 2;
+}
+
+.card-columns {
+  display: flex;
+  gap: 24px;
+}
+
+.card-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.card-amount {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+
+.card-due {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.card-note {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: auto;
+}
+
+.btn-payment {
+  display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(357.03deg, #005890 2.66%, #2A78A8 109.42%);
+  color: #fff;
+  border: 0.5px solid var(--fills-outline-grey, #949494BF);
+  border-radius: 28px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s;
+  margin-top: auto;
+  width: 100%;
+}
+.btn-payment:hover {
+  background: linear-gradient(357.03deg, #004875 2.66%, #005890 109.42%);
+}
+
+/* ── Summary ── */
+.summary h3 {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  padding: 8px 0;
+}
+
+.summary-row .value {
+  font-weight: 600;
+}
+
+/* ── Ipad ── */
+@media (max-width: 1024px) {
+
+  .content-grid {
+    flex-direction: column;
+  }
+
+  .balance-section {
+    order: 1;
+    width: 460px;
+  }
+
+  .payment-card {
+    width: 460px;
+    order: 0;
+    padding: 20px;
+  }
+}
+
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .mobile-brand {
+    display: block;
+  }
+
+  .topbar {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+  }
+
+  .topbar-dark {
+    background: #002942;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 16px;
+    margin-left: 0;
+    order: 1;
+  }
+
+  .topbar-tabs {
+    width: 100%;
+    padding: 8px 16px;
+    margin-right: 0;
+    order: 2;
+  }
+
+  .topbar-dark .hamburger svg {
+    fill: #ffffff;
+  }
+
+  .topbar-dark .mobile-brand {
+    color: #ffffff;
+  }
+
+  .topbar-dark .print-btn,
+  .topbar-dark .user-info {
+    color: #ffffff;
+  }
+
+  .topbar-dark .print-btn .print-btn-label,
+  .topbar-dark .user-name {
+    color: #ffffff;
+  }
+
+  .topbar-tabs {
+    padding: 8px 16px;
+  }
+
+  .tabs {
+    width: 100%;
+  }
+
+  .tab-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .print-btn {
+    display: none;
+  }
+
+  .content {
+    padding: 20px 16px;
+  }
+
+  .page-title {
+    font-size: 22px;
+    margin-bottom: 18px;
+  }
+
+  .balance-section {
+    width: 100%;
+  }
+
+  .payment-card {
+    width: 100%;
+  }
+
+  .card-amount {
+    font-size: 26px;
+  }
+
+}
+

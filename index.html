@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logos - Billing Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-brand">Logos</div>
+  <ul class="sidebar-nav">
+    <li><a href="#">Communicate</a></li>
+    <li><a href="#">Schedule</a></li>
+    <li><a href="#">Grades</a></li>
+    <li><a href="#">Attendance</a></li>
+    <li><a href="#">Counseling</a></li>
+    <li><a href="#">Alerts</a></li>
+    <li><a href="#">Transcript</a></li>
+    <li><a href="#">Re-Enroll</a></li>
+    <li><a href="#" class="active">Billing</a></li>
+    <li><a href="#">Service Hours</a></li>
+  </ul>
+</aside>
+
+<!-- Overlay for mobile sidebar -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Main Content -->
+<div class="main">
+  <!-- Top Bar -->
+  <header class="topbar">
+    <div class="topbar-dark">
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+      </button>
+
+      <span class="mobile-brand">Logos</span>
+
+      <div class="topbar-right">
+        <button class="print-btn" aria-label="Print">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17 5H16V0H4V5H3C1.34 5 0 6.34 0 8V14H4V18H16V14H20V8C20 6.34 18.66 5 17 5ZM6 2H14V5H6V2ZM14 16H6V12H14V16ZM16 12V10H4V12H2V8C2 7.45 2.45 7 3 7H17C17.55 7 18 7.45 18 8V12H16Z" fill="currentColor"/><path d="M16 9.5C16.5523 9.5 17 9.05228 17 8.5C17 7.94772 16.5523 7.5 16 7.5C15.4477 7.5 15 7.94772 15 8.5C15 9.05228 15.4477 9.5 16 9.5Z" fill="currentColor"/></svg>
+          <span class="print-btn-label">Print</span>
+        </button>
+        <button class="user-info" aria-label="user info">
+          <svg class="user-avatar-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 0C4.48 0 0 4.48 0 10C0 15.52 4.48 20 10 20C15.52 20 20 15.52 20 10C20 4.48 15.52 0 10 0ZM5.35 16.5C6.66 15.56 8.26 15 10 15C11.74 15 13.34 15.56 14.65 16.5C13.34 17.44 11.74 18 10 18C8.26 18 6.66 17.44 5.35 16.5ZM16.14 15.12C14.45 13.8 12.32 13 10 13C7.68 13 5.55 13.8 3.86 15.12C2.7 13.73 2 11.95 2 10C2 5.58 5.58 2 10 2C14.42 2 18 5.58 18 10C18 11.95 17.3 13.73 16.14 15.12Z" fill="currentColor"/><path d="M10 4C8.07 4 6.5 5.57 6.5 7.5C6.5 9.43 8.07 11 10 11C11.93 11 13.5 9.43 13.5 7.5C13.5 5.57 11.93 4 10 4ZM10 9C9.17 9 8.5 8.33 8.5 7.5C8.5 6.67 9.17 6 10 6C10.83 6 11.5 6.67 11.5 7.5C11.5 8.33 10.83 9 10 9Z" fill="currentColor"/></svg>
+          <span class="user-name">Bartho...</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="topbar-tabs">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="balance">Balance</button>
+        <button class="tab-btn" data-tab="statements">Statements</button>
+        <button class="tab-btn" data-tab="autopay">AutoPay</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <section class="content">
+    <h1 class="page-title">Balance</h1>
+
+    <div class="content-grid">
+      <!-- Balance Table -->
+      <div class="balance-section">
+        <h3>Total Outstanding Balances</h3>
+        <table class="balance-table">
+          <tbody>
+            <tr>
+              <td>Enrollment/ Registration Fees</td>
+              <td class="amount amount-zero">$0.00</td>
+            </tr>
+            <tr>
+              <td>Field Trips 6th Grade</td>
+              <td class="amount amount-zero">$0.00</td>
+            </tr>
+            <tr>
+              <td>Friday School</td>
+              <td class="amount">$1,602.00</td>
+            </tr>
+            <tr>
+              <td>Sports Fee Football</td>
+              <td class="amount amount-zero">$0.00</td>
+            </tr>
+            <tr>
+              <td>Tuitionl</td>
+              <td class="amount">$5,768.00</td>
+            </tr>
+            <tr>
+              <td>Sports Fees</td>
+              <td class="amount amount-zero">$0.00</td>
+            </tr>
+            <tr>
+              <td>Sports Fees</td>
+              <td class="amount amount-zero">$0.00</td>
+            </tr>
+            <tr>
+              <td>Friday School Payment</td>
+              <td class="amount amount-negative">-$930.00</td>
+            </tr>
+            <tr>
+              <td>Multi-Child Discount</td>
+              <td class="amount amount-negative">-$489.50</td>
+            </tr>
+            <tr>
+              <td>Registration Fees</td>
+              <td class="amount amount-zero">$0.00</td>
+            </tr>
+              <td>Tuition Payment</td>
+              <td class="amount amount-negative">-$4,405.50</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Summary -->
+        <div class="summary">
+          <h3>Summary</h3>
+          <div class="summary-row">
+            <span>Statement Balance</span>
+            <span class="value">$1,545.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Card -->
+      <div class="payment-card">
+        <div class="card-columns">
+          <div class="card-col">
+            <span class="card-label">Total Balance</span>
+            <span class="card-amount">$1,545.00</span>
+            <p class="card-note">If you are making a one time payment for something, please add a note.</p>
+          </div>
+          <div class="card-col">
+            <span class="card-label">Remaining Balance</span>
+            <span class="card-amount">$1,545.00</span>
+            <span class="card-due">Payment Due: 06/05/2024</span>
+            <button class="btn-payment">Go to Payment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
